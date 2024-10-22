@@ -1,13 +1,12 @@
+import { useContext } from "react";
+import { KattContext } from "../context/kattContext";
 
-export default function Elem(props){
+export default function Elem(props) {
+  const { katt } = useContext(KattContext);
 
-    function katt(){
-        console.log("elem: ", props.i)
-        props.katt(props.i)
-    }
-    return(
-        <div className='mezo card col-lg-4' onClick={()=>katt()}>
-        <p>{props.jel}</p>
-        </div>
-    )
+  return (
+    <div className="mezo card col-lg-4" onClick={() =>  katt(props.i)}    >
+     {props.jel}
+    </div>
+  );
 }

@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import Jatekter from './tictactoe2/Jatekter.js';
-import { LISTA } from './tictactoe2/adat.js';
-import { useState } from 'react';
+//import { LISTA } from './tictactoe2/adat.js';
+import { useContext, useState } from 'react';
+import { KattContext } from './context/kattContext';
 
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
   //STATE = olyan változó, amelynek az értékét figyeli a react, és ha az megváltozik, akkor frissíti az oldal azon részeit, amely ettől a változótól függ
     //létrehozása: useState hook-al történik => ezegy speciális függvény. amivel egy változóhoz egy függvényt rendelünk. visszatérési értéke mindig lista: változó neve + beállítófüggvény(set..)
     //[valtozonev, beállítófüggvény] = useState(kezdőérték)
-
+/*
     const [lista, setLista]=useState(LISTA)
     const [lepes, setLepes] = useState(0)
   
@@ -41,13 +42,16 @@ function App() {
 
     console.log(lista)
   }
+*/
+
+  const {LISTA}=useContext(KattContext)
 
   return (
     <div className="App">
       <header className="App-header">TicTacToeReact</header>
       <article>
         <h2>Ez a tictactoe</h2>
-        <Jatekter LISTA={LISTA} katt={katt}/>
+        <Jatekter LISTA={LISTA}/>
       </article>
       <footer>Csorba Eszter</footer>
     </div>
